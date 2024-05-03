@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Estilos para los botones del modal */
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilos para el video dentro del modal */
+#cameraPreview {
+    width: 100%;
+    height: auto;
+}
+
+header {
+    background-color: #333;
+    color: white; 
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    z-index: 1000;
+}
+
+#captureBtn {
+    background-color: #007bff; 
+    color: white; 
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    margin-left: 10px; 
+}
+
+#photoContainer {
+    overflow-y: auto; 
+    flex-grow: 1; 
+    padding: 20px;
+}
+
+.photoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photoCard {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.photoCard img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
