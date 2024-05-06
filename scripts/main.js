@@ -27,7 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 console.error('Error al capturar y publicar la foto:', error);
-                alert('Ocurrió un error al procesar la foto. Inténtalo de nuevo.');
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                  });
             }
         });
 
@@ -55,7 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 } catch (error) {
                     console.error('Error al procesar la foto cargada:', error);
-                    alert('Ocurrió un error al procesar la foto cargada. Inténtalo de nuevo.');
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "La foto seleccionada tiene mucha resolución"
+                      });
                 }
             }
         });
@@ -119,12 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Función para procesar la imagen y agregar un título personalizado
+    // Función para procesar la imagen y agregar un título 
     function processImage(imageDataURL, title) {
         return new Promise((resolve, reject) => {
             const imageObject = {
                 dataURL: imageDataURL,
-                title: title || 'New Photo', // Utiliza el título proporcionado o uno por defecto
+                title: title || 'New Photo', // Usa el título proporcionado o uno por defecto
                 timestamp: new Date().toLocaleString() // Fecha y hora actual
             };
             resolve(imageObject);
@@ -145,20 +154,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Función para publicar la imagen en MOCKAPI.IO en formato Base64
+    // publicar la imagen en MOCKAPI.IO 
     async function publishPhoto(imageData) {
         try {
-            // Convierte la imagen en formato Base64
+            // Convertir la imagen en formato Base64
             const base64Image = await convertImageToBase64(imageData.dataURL);
 
-            // Crea un objeto con los datos de la imagen en formato Base64 y el título
+            // Crear un objeto con los datos de la imagen en formato Base64 
             const imageDataBase64 = {
                 title: imageData.title,
                 image: base64Image,
                 timestamp: imageData.timestamp
             };
 
-            // Realiza la solicitud POST a MOCKAPI.IO con los datos en formato Base64
+            // Realizar la solicitud POST a MOCKAPI.IO con los datos en formato Base64
             const response = await fetch('https://6626f956b625bf088c0706c7.mockapi.io/api/v1/images', {
                 method: 'POST',
                 headers: {
@@ -178,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function convertImageToBase64(dataURL) {
         return new Promise((resolve, reject) => {
             try {
-                // Extrae la parte base64 de la URL de datos
                 const base64Image = dataURL.split(';base64,').pop();
                 resolve(base64Image);
             } catch (error) {
@@ -188,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayPhoto(imageData) {
-        // Función para mostrar una imagen en el photoReel
+        // Función para mostrar imagenes en el Reel
         const photoCard = document.createElement('div');
         photoCard.classList.add('photoCard');
         photoCard.innerHTML = `

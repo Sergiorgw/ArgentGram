@@ -5,6 +5,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Estilos para el modal */
@@ -32,6 +34,9 @@ body {
 /* Estilos para los botones del modal */
 .modal-buttons {
     margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .modal-buttons button {
@@ -41,6 +46,7 @@ body {
     border: none;
     background-color: #007bff;
     color: white;
+    display: inline-block;
 }
 
 /* Estilos para el video dentro del modal */
@@ -60,12 +66,53 @@ header {
     z-index: 1000;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+}
+
+#captureBtn:hover {
+    background-color: #08d435;
+    color: #333;
+    padding: 13px 19px;
+    font-size: 20px;
+}
+
 #captureBtn {
-    background-color: #007bff; 
-    color: white; 
+    background-color: #7864e4; 
+    color: rgb(255, 255, 255); 
+    font-size: 18px;
     padding: 8px 16px; 
     border: none; 
-    border-radius: 4px; 
+    border-radius: 9px; 
+    cursor: pointer; 
+    margin-left: 10px; 
+}
+
+input[type="file"] {
+    display: none; 
+}
+
+.custom-upload-btn:hover {
+    background-color: #08d435;
+    color: #333;
+    padding: 13px 19px; 
+    font-size: 20px;
+}
+
+.custom-upload-btn {
+    background-color: #7864e4; 
+    color: rgb(255, 255, 255); 
+    font-size: 18px;
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 9px; 
     cursor: pointer; 
     margin-left: 10px; 
 }
@@ -80,6 +127,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 120px;
 }
 
 .photoCard {
