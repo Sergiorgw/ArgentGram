@@ -9,7 +9,6 @@ body {
     align-items: center;
 }
 
-/* Estilos para el modal */
 .modal {
     display: none;
     position: fixed;
@@ -31,7 +30,6 @@ body {
     text-align: center;
 }
 
-/* Estilos para los botones del modal */
 .modal-buttons {
     margin-top: 20px;
     text-align: center;
@@ -49,7 +47,6 @@ body {
     display: inline-block;
 }
 
-/* Estilos para el video dentro del modal */
 #cameraPreview {
     width: 100%;
     height: auto;
@@ -64,8 +61,10 @@ header {
     top: 0; 
     left: 0; 
     z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .logo-container {
     display: flex;
     align-items: center;
@@ -87,8 +86,8 @@ header {
 #captureBtn {
     background-color: #7864e4; 
     color: rgb(255, 255, 255); 
-    font-size: 18px;
-    padding: 8px 16px; 
+    font-size: 15px;
+    padding: 8px 10px; 
     border: none; 
     border-radius: 9px; 
     cursor: pointer; 
@@ -109,8 +108,8 @@ input[type="file"] {
 .custom-upload-btn {
     background-color: #7864e4; 
     color: rgb(255, 255, 255); 
-    font-size: 18px;
-    padding: 8px 16px; 
+    font-size: 15px;
+    padding: 8px 10px; 
     border: none; 
     border-radius: 9px; 
     cursor: pointer; 
@@ -124,10 +123,25 @@ input[type="file"] {
 }
 
 .photoContainer {
+    margin-top: calc(165vh + 1000px); /* Calcula el margen como 10% de la altura de la pantalla más 20px */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 120px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .photoContainer {
+        margin-top: 165vh; /* Ajuste específico para dispositivos con ancho máximo de 768px */
+    }
+}
+
+@media (min-width: 1200px) {
+    .photoContainer {
+        margin-top: 300vh; /* Ajuste específico para dispositivos con ancho mínimo de 1200px */
+    }
 }
 
 .photoCard {
@@ -135,11 +149,15 @@ input[type="file"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
+    width: 50%;
 }
 
 .photoCard img {
     width: 100%;
     height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 footer {
