@@ -154,20 +154,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // publicar la imagen en MOCKAPI.IO 
+    // publica la imagen en MOCKAPI.IO 
     async function publishPhoto(imageData) {
         try {
-            // Convertir la imagen en formato Base64
+            // Convierte la imagen en formato Base64
             const base64Image = await convertImageToBase64(imageData.dataURL);
 
-            // Crear un objeto con los datos de la imagen en formato Base64 
+            // Crea un objeto con los datos de la imagen en formato Base64 y el título
             const imageDataBase64 = {
                 title: imageData.title,
                 image: base64Image,
                 timestamp: imageData.timestamp
             };
 
-            // Realizar la solicitud POST a MOCKAPI.IO con los datos en formato Base64
+            // Realiza la solicitud POST a MOCKAPI.IO con los datos en formato Base64
             const response = await fetch('https://6626f956b625bf088c0706c7.mockapi.io/api/v1/images', {
                 method: 'POST',
                 headers: {
@@ -187,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function convertImageToBase64(dataURL) {
         return new Promise((resolve, reject) => {
             try {
+                // Extrae la parte base64 de la URL de datos
                 const base64Image = dataURL.split(';base64,').pop();
                 resolve(base64Image);
             } catch (error) {
@@ -196,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayPhoto(imageData) {
-        // Función para mostrar imagenes en el Reel
+        // Función para mostrar una imagen en el photoReel
         const photoCard = document.createElement('div');
         photoCard.classList.add('photoCard');
         photoCard.innerHTML = `
